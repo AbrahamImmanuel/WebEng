@@ -1,0 +1,16 @@
+# Turn on the rewrite engine
+Options +FollowSymlinks
+RewriteEngine on
+
+# Request routing
+
+# GET ../all/{search}
+RewriteRule ^all/([0-9A-Za-z_\.-\@]+)$    index.php?method=all&search=$1 [QSA]
+
+# POST ../insert
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^insert  index.php?method=insert [QSA]
+
+# POST ../edit/{id}
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^edit/([0-9A-Za-z_\.-\@]+)$  index.php?method=edit&id=$1 [QSA]
