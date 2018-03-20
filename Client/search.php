@@ -2,7 +2,7 @@
 	if($search = $_POST['search'])
 	{	
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEngineeringServer/all/$search";
+		$url = "http://localhost:8025/GitHub/WebEng/Server/all/$search";
 		
 		// send request to resource
 		$client = curl_init($url);

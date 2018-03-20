@@ -49,7 +49,7 @@
 			return $array;
 		}
 		
-		function insert($data, $id)
+		function update($data, $id)
 		{
 			R::exec(
 			"update customer
