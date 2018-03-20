@@ -6,7 +6,7 @@
 		$data = $_POST;
 		
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEngineeringServer/insert";
+		$url = "http://localhost:8025/GitHub/WebEng/Server/insert";
 		
 		// send request to resource
 		$client = curl_init($url);
@@ -31,7 +31,7 @@
 		$data = $_POST;
 		$id = 1;
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEngineeringServer/edit/$id";
+		$url = "http://localhost:8025/GitHub/WebEng/Server/edit/$id";
 		
 		// send request to resource
 		$client = curl_init($url);
