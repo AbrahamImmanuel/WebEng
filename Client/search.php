@@ -1,8 +1,15 @@
 <?php
 	if($search = $_POST['search'])
 	{	
+		$search = urlencode($search);
+		$type = $_POST['searchType'];
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEng/Server/all/$search";
+		if($type == 'Name')
+			$url = "http://localhost:8025/GitHub/WebEng/Server/name/$search";
+		else if($type == 'Cust. Num. Acc.')
+			$url = "http://localhost:8025/GitHub/WebEng/Server/cna/$search";
+		else
+			$url = "http://localhost:8025/GitHub/WebEng/Server/all/$search";
 		
 		// send request to resource
 		$client = curl_init($url);

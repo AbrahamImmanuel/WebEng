@@ -1,9 +1,17 @@
 <?php
 	class PicDAO
 	{
-		function getAll()
+		function searchName($search)
 		{
-			$data = R::getAll("select * from pic");
+			$data = R::getAll(
+			"select * 
+			from customer c
+			join pic p
+			on(c.pic_id = p.id)
+			where 
+			p.first_name like '%$search%' or
+			p.last_name like '%$search%'
+			");
 			return $data;
 		}
 		
