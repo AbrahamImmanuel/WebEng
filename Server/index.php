@@ -9,8 +9,18 @@
 		$method = $_GET['method'];
 		switch($method)
 		{
+			case "name":
+				$response = PicDAO::searchName($_GET['search']);
+				$encoded = json_encode($response);
+				echo $encoded;
+				break;
+			case "cna":
+				$response = CustomerDAO::searchCNA($_GET['search']);
+				$encoded = json_encode($response);
+				echo $encoded;
+				break;
 			case "all":
-				$response = CustomerDAO::getAll();
+				$response = CustomerDAO::searchAll($_GET['search']);
 				$encoded = json_encode($response);
 				echo $encoded;
 				break;
