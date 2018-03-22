@@ -1,12 +1,13 @@
 <?php
 	session_start();
+	$path = "http://localhost:8025/GitHub/WebEng/Server/";
 	
 	if(isset($_POST['save']))
 	{
 		$data = $_POST;
 		
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEng/Server/insert";
+		$url = $path."insert";
 		
 		// send request to resource
 		$client = curl_init($url);
@@ -31,7 +32,7 @@
 		$data = $_POST;
 		$id = 1;
 		// resource address
-		$url = "http://localhost:8025/GitHub/WebEng/Server/edit/$id";
+		$url = $path."edit/$id";
 		
 		// send request to resource
 		$client = curl_init($url);
