@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$path = "http://localhost:8025/GitHub/WebEng/Server/";
+	$path = "http://localhost/WebEng/Server/";
 	
 	if(isset($_POST['save']))
 	{
