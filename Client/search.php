@@ -1,5 +1,6 @@
 <?php
-	$path = "http://localhost/WebEng/Server/";
+	session_start();
+	$path = "http://localhost:8025/GitHub/WebEng/Server/";
 	
 	if($search = $_POST['search'])
 	{	
@@ -20,10 +21,9 @@
 		// get response from resource
 		$response = curl_exec($client);
 		$decoded = json_decode($response);
-		echo "<pre>";
-		print_r($decoded);
-		echo "</pre>";
+		$_SESSION['data'] = $decoded;
+		header('Location: searchGui.php');
 	}
 	else
-		echo 'not found';
+		header('Location: index.php');
 ?>

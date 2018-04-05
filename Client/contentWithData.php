@@ -42,7 +42,7 @@
 				<td scope="row">                        
 					<select class="form-control" name="customerSegment">
 					<?php
-						if($_SESSION['customerSegment'] == 'Retail')
+						if($customerSegment == 'Retail')
 						{
 					?>
 							<option>-</option>
@@ -50,7 +50,7 @@
 							<option>Business</option>
 					<?php
 						}
-						else if($_SESSION['customerSegment'] == 'Business')
+						else if($customerSegment == 'Business')
 						{
 					?>
 							<option>-</option>
@@ -69,14 +69,14 @@
 					?>
 					</select>
 				</td>
-				<input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+				<input type="hidden" name="id" value="">
 				<td scope="row">Customer Number Account</td>
-				<td scope="row"><input type="text" name="customerNumberAccount" class="form-control" placeholder="CA100023006" value="<?php echo $_SESSION['customerNumberAccount'] ?>" disabled></td>
+				<td scope="row"><input type="text" name="customerNumberAccount" class="form-control" placeholder="CA100023006" value="<?php echo $customerNumberAccount ?>" disabled></td>
 				<td scope="row">Dukcapil Status</td>
 				<td scope="row">
 					<select class="form-control" name="dukcapilStatus">
 					<?php
-						if($_SESSION['dukcapilStatus'] == 'Valid')
+						if($dukcapilStatus == 'Valid')
 						{
 					?>
 							<option selected>Valid</option>
@@ -99,7 +99,7 @@
 				<td scope="row">
 					<select class="form-control" name="customerCategory">
 					<?php
-						if($_SESSION['customerCategory'] == 'Default')
+						if($customerCategory == 'Default')
 						{
 					?>
 							<option>-</option>
@@ -107,7 +107,7 @@
 							<option>Enterprise</option>
 					<?php
 						}
-						else if($_SESSION['customerCategory'] == 'Enterprise')
+						else if($customerCategory == 'Enterprise')
 						{
 					?>
 							<option>-</option>
@@ -136,7 +136,7 @@
 				<td scope="row">
 					<select class="form-control" name="residenceType">
 					<?php
-						if($_SESSION['residenceType'] == 'Domestic')
+						if($residenceType == 'Domestic')
 						{
 					?>
 							<option>-</option>
@@ -144,7 +144,7 @@
 							<option>Foreign</option>
 					<?php
 						}
-						else if($_SESSION['residenceType'] == 'Foreign')
+						else if($residenceType == 'Foreign')
 						{
 					?>
 							<option>-</option>
@@ -164,18 +164,18 @@
 					</select>
 				</td>
 				<td scope="row">NPWP Number</td>
-				<td scope="row" colspan="3"><input name="npwpNumber" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['npwpNumber'] ?>"></td>
+				<td scope="row" colspan="3"><input name="npwpNumber" type="text" class="form-control" placeholder="" value="<?php echo $npwpNumber ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Date of Birth</td>
-				<td scope="row"><input name="dateOfBirth" type="date" class="form-control" placeholder="" value="<?php echo $_SESSION['dateOfBirth'] ?>"></td>
+				<td scope="row"><input name="dateOfBirth" type="date" class="form-control" placeholder="" value="<?php echo $dateOfBirth ?>"></td>
 				<td scope="row">Is Converted From Lead</td>
-				<td scope="row"><input name="isConvertedFromLead" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['isConvertedFromLead'] ?>"></td>
+				<td scope="row"><input name="isConvertedFromLead" type="text" class="form-control" placeholder="" value="<?php echo $isConvertedFromLead ?>"></td>
 				<td scope="row">Customer Status</td>
 				<td scope="row">
 					<select class="form-control" name="customerStatus">
 					<?php
-						if($_SESSION['customerStatus'] == 'Registered')
+						if($customerStatus == 'Registered')
 						{
 					?>
 							<option>-</option>
@@ -185,7 +185,7 @@
 							<option>Deactivate</option>
 					<?php
 						}
-						else if($_SESSION['customerStatus'] == 'Active')
+						else if($customerStatus == 'Active')
 						{
 					?>
 							<option>-</option>
@@ -205,7 +205,7 @@
 							<option>Deactivate</option>
 					<?php
 						}
-						else if($_SESSION['customerStatus'] == 'Deactivate')
+						else if($customerStatus == 'Deactivate')
 						{
 					?>
 							<option>-</option>
@@ -234,7 +234,7 @@
 				<td scope="row">
 					<select class="form-control" name="occupation">
 					<?php
-						if($_SESSION['occupation'] == 'Employed')
+						if($occupation == 'Employed')
 						{
 					?>
 							<option>-</option>
@@ -242,7 +242,7 @@
 							<option>Private</option>
 					<?php
 						}
-						else if($_SESSION['occupation'] == 'Private')
+						else if($occupation == 'Private')
 						{
 					?>
 							<option>-</option>
@@ -262,23 +262,23 @@
 					</select>
 				</td>
 				<td scope="row">Primary Mobile</td>
-				<td scope="row"><input name="primaryMobile" type="tel" class="form-control" placeholder="" value="<?php echo $_SESSION['primaryMobile'] ?>"></td>
+				<td scope="row"><input name="primaryMobile" type="tel" class="form-control" placeholder="" value="<?php echo $primaryMobile ?>"></td>
 				<td scope="row">BSS Status</td>
 				<td scope="row"><input name="bssStatus" type="text" class="form-control" placeholder="" disabled></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Modified Time</td>
-				<td scope="row"><input type="datetime" class="form-control" placeholder="" value="<?php echo $_SESSION['modifiedTime'] ?>" disabled></td>
+				<td scope="row"><input type="datetime" class="form-control" placeholder="" value="<?php echo $modifiedTime ?>" disabled></td>
 				<td scope="row">Corporate Tax ID</td>
-				<td scope="row" colspan="3"><input name="corporateTaxId" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['corporateTaxId'] ?>"></td>
+				<td scope="row" colspan="3"><input name="corporateTaxId" type="text" class="form-control" placeholder="" value="<?php echo $corporateTaxId ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Shared Balance Group</td>
-				<td scope="row"><input name="sharedBalanceGroup" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['sharedBalanceGroup'] ?>"></td>
+				<td scope="row"><input name="sharedBalanceGroup" type="text" class="form-control" placeholder="" value="<?php echo $sharedBalanceGroup ?>"></td>
 				<td scope="row">Created Time</td>
-				<td scope="row"><input type="datetime" class="form-control" placeholder="" value="<?php echo $_SESSION['createdTime'] ?>" disabled></td>
+				<td scope="row"><input type="datetime" class="form-control" placeholder="" value="<?php echo $createdTime ?>" disabled></td>
 				<td scope="row">Customer Username</td>
-				<td scope="row"><input name="customerUsername" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['customerUsername'] ?>"></td>
+				<td scope="row"><input name="customerUsername" type="text" class="form-control" placeholder="" value="<?php echo $customerUsername ?>"></td>
 			</tr>
 		</table> 
 		<table style="font-size:13px;" class="table table-hover">
@@ -287,14 +287,14 @@
 			</tr>
 			<tr class="table-light">
 				<td scope="row">First Name</td>
-				<td scope="row"><input name="firstName" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['firstName'] ?>"></td>
+				<td scope="row"><input name="firstName" type="text" class="form-control" placeholder="" value="<?php echo $firstName ?>"></td>
 				<td scope="row">Last Name</td>
-				<td scope="row"><input name="lastName" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['lastName'] ?>"></td>
+				<td scope="row"><input name="lastName" type="text" class="form-control" placeholder="" value="<?php echo $lastName ?>"></td>
 				<td scope="row">Gender</td>
 				<td scope="row">
 					<select class="form-control" name="gender">
 					<?php
-						if($_SESSION['gender'] == 'Male')
+						if($gender == 'Male')
 						{
 					?>
 							<option>-</option>
@@ -302,7 +302,7 @@
 							<option>Female</option>
 					<?php
 						}
-						else if($_SESSION['gender'] == 'Female')
+						else if($gender == 'Female')
 						{
 					?>
 							<option>-</option>
@@ -324,12 +324,12 @@
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Facebook Account ID</td>
-				<td scope="row"><input name="facebookAccountId" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['facebookAccountId'] ?>"></td>
+				<td scope="row"><input name="facebookAccountId" type="text" class="form-control" placeholder="" value="<?php echo $facebookAccountId ?>"></td>
 				<td scope="row">Customer ID Type</td>
 				<td scope="row">
 					<select class="form-control" name="customerIdType">
 					<?php
-						if($_SESSION['customerIdType'] == 'KTP')
+						if($customerIdType == 'KTP')
 						{
 					?>
 							<option>-</option>
@@ -337,7 +337,7 @@
 							<option>Passport</option>
 					<?php
 						}
-						else if($_SESSION['customerIdType'] == 'Passport')
+						else if($customerIdType == 'Passport')
 						{
 					?>
 							<option>-</option>
@@ -357,22 +357,22 @@
 					</select>
 				</td>
 				<td scope="row">Contact Number</td>
-				<td scope="row"><input name="contactNumber" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['contactNumber'] ?>"></td>
+				<td scope="row"><input name="contactNumber" type="text" class="form-control" placeholder="" value="<?php echo $contactNumber ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Customer ID</td>
-				<td scope="row"><input name="customerId" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['customerId'] ?>"></td>
+				<td scope="row"><input name="customerId" type="text" class="form-control" placeholder="" value="<?php echo $customerId ?>"></td>
 				<td scope="row">Mother Maiden Name</td>
-				<td scope="row"><input name="motherMaidenName" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['motherMaidenName'] ?>"></td>
+				<td scope="row"><input name="motherMaidenName" type="text" class="form-control" placeholder="" value="<?php echo $motherMaidenName ?>"></td>
 				<td scope="row">Primary Email</td>
-				<td scope="row"><input name="primaryEmail" type="email" class="form-control" placeholder="" value="<?php echo $_SESSION['primaryEmail'] ?>"></td>
+				<td scope="row"><input name="primaryEmail" type="email" class="form-control" placeholder="" value="<?php echo $primaryEmail ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Preferred Language</td>
 				<td scope="row">
 					<select class="form-control" name="preferredLanguage">
 					<?php
-						if($_SESSION['preferredLanguage'] == 'English')
+						if($preferredLanguage == 'English')
 						{
 					?>
 							<option>-</option>
@@ -380,7 +380,7 @@
 							<option>Bahasa Indonesia</option>
 					<?php
 						}
-						else if($_SESSION['preferredLanguage'] == 'Bahasa Indonesia')
+						else if($preferredLanguage == 'Bahasa Indonesia')
 						{
 					?>
 							<option>-</option>
@@ -400,16 +400,16 @@
 					</select>
 				</td>
 				<td scope="row">KK Number</td>
-				<td scope="row"><input name="kkNumber" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['kkNumber'] ?>"></td>
+				<td scope="row"><input name="kkNumber" type="text" class="form-control" placeholder="" value="<?php echo $kkNumber ?>"></td>
 				<td scope="row">Home Phone</td>
-				<td scope="row"><input name="homePhone" type="tel" class="form-control" placeholder="" value="<?php echo $_SESSION['homePhone'] ?>"></td>
+				<td scope="row"><input name="homePhone" type="tel" class="form-control" placeholder="" value="<?php echo $homePhone ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Home Status</td>
 				<td scope="row">
 					<select class="form-control" name="homeStatus">
 					<?php
-						if($_SESSION['homeStatus'] == 'Own House')
+						if($homeStatus == 'Own House')
 						{
 					?>
 							<option>-</option>
@@ -418,7 +418,7 @@
 							<option>Apartment</option>
 					<?php
 						}
-						else if($_SESSION['homeStatus'] == 'Rent')
+						else if($homeStatus == 'Rent')
 						{
 					?>
 							<option>-</option>
@@ -427,7 +427,7 @@
 							<option>Apartment</option>
 					<?php
 						}
-						else if($_SESSION['homeStatus'] == 'Apartment')
+						else if($homeStatus == 'Apartment')
 						{
 					?>
 							<option>-</option>
@@ -449,13 +449,13 @@
 					</select>
 				</td>
 				<td scope="row">Office Phone</td>
-				<td scope="row"><input name="officePhone" type="tel" class="form-control" placeholder="" value="<?php echo $_SESSION['officePhone'] ?>"></td>
+				<td scope="row"><input name="officePhone" type="tel" class="form-control" placeholder="" value="<?php echo $officePhone ?>"></td>
 				<td scope="row">Marital Status</td>
-				<td scope="row"><input name="maritalStatus" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['maritalStatus'] ?>"></td>
+				<td scope="row"><input name="maritalStatus" type="text" class="form-control" placeholder="" value="<?php echo $maritalStatus ?>"></td>
 			</tr>
 			<tr class="table-light">
 				<td scope="row">Fax</td>
-				<td scope="row" colspan="5"><input name="fax" type="text" class="form-control" placeholder="" value="<?php echo $_SESSION['fax'] ?>"></td>
+				<td scope="row" colspan="5"><input name="fax" type="text" class="form-control" placeholder="" value="<?php echo $fax ?>"></td>
 			</tr>
 		</table> 
 	</div>

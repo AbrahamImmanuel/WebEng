@@ -15,16 +15,18 @@ and open the template in the editor.
         <link href="CSS/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         
-        <script>
-            function rowNum(x){
-                alert(x.rowIndex);
-            }
-        </script>
-        
     </head>
     <body>
         <?php include_once 'navBarTop.html'; ?>
         <?php include_once 'navBarBottom.html'; ?>
+		<?php
+			if(isset($_POST['view']))
+			{
+				$_SESSION['index'] = $_POST['key'];
+				header('Location: index.php');
+			}
+		?>
+		
         <nav class="navbar navbar-expand-lg navbar-light bg-light"> <!--bar below navBarBottom-->
             <span style="font-size: 13px">Recently Viewed : <a href="#">Home Dashboard</a> <span style="font-size: 10px">>></span> <a href="#">Home Dashboard</a></span>
         </nav>
@@ -43,19 +45,30 @@ and open the template in the editor.
 				<th scope="row">First Name</th>
 				<th scope="row">Last Name</th>
 				<th scope="row">NPWP</th>
+				<th scope="row"></th>
 			</tr>
-                        <tr class="table-light" onclick="rowNum(this)">
-				<td scope="row">CAxxxx</td>
-				<td scope="row">Test</td>
-				<td scope="row">Coba</td>
-				<td scope="row">131241251514</td>
-			</tr>
-			<tr class="table-light" onclick="rowNum(this)">
-				<td scope="row">CBxxxx</td>
-				<td scope="row">Tes</td>
-				<td scope="row">Coa</td>
-				<td scope="row">131514</td>
-			</tr>
+			
+			<?php
+			if(isset($_SESSION['data']))
+			{
+				$data = $_SESSION['data'];
+				foreach($data as $key => $value)
+				{
+			?>
+					<tr class="table-light">
+					<form action="#" method="POST">
+						<input type="hidden" name="key" value="<?php echo $key ?>">
+						<td scope="row"><?php echo $value->customer_number_account ?></td>
+						<td scope="row"><?php echo $value->first_name ?></td>
+						<td scope="row"><?php echo $value->last_name ?></td>
+						<td scope="row"><?php echo $value->npwp_number ?></td>
+						<td scope="row"><input type="submit" name="view" value="View"></td>
+					</form>
+					</tr>
+			<?php
+				}
+			}
+		?>
 		</table> 
 	</div>
 		
