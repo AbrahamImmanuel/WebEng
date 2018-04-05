@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2018 at 07:51 AM
+-- Generation Time: Apr 03, 2018 at 04:26 AM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -54,7 +54,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_number_account`, `customer_segment`, `customer_category`, `residence_type`, `date_of_birth`, `occupation`, `modified_time`, `shared_balance_group`, `dukcapil_status`, `latitude`, `longitude`, `npwp_number`, `is_converted_from_lead`, `customer_status`, `primary_mobile`, `bss_status`, `corporate_tax_id`, `created_time`, `customer_username`, `pic_id`) VALUES
-('CA000000001', 'retail', 'default', 'domestic', '2018-03-01', 'private', '2018-03-18 15:33:45', '123', 'valid', 32.1, 12.3, '123', '1', 'active', '123', '123', '123', '0000-00-00 00:00:00', 'testing', 1);
+('CA000000008', 'Retail', 'Default', 'Domestic', '2018-04-03', 'Employed', '2018-04-03 01:54:27', '123', 'Valid', 0, 0, '123', 'yes', 'Registered', '123', '', '123', '2018-04-03 01:54:27', 'test1', 8),
+('CA000000009', 'Business', 'Enterprise', 'Foreign', '2018-04-04', 'Private', '2018-04-03 01:59:25', '456', 'Not Valid', 0, 0, '456', 'no', 'Active', '456', '', '456', '2018-04-03 01:59:25', 'test2', 9),
+('CA000000010', 'Retail', 'Enterprise', 'Foreign', '2018-04-05', 'Employed', '2018-04-03 02:04:46', '789', 'Valid', 0, 0, '789', 'yes', 'Suspended', '789', '', '789', '2018-04-03 02:04:46', 'test3', 10);
 
 --
 -- Triggers `customer`
@@ -82,7 +84,9 @@ CREATE TABLE `customer_seq` (
 --
 
 INSERT INTO `customer_seq` (`id`) VALUES
-(1);
+(8),
+(9),
+(10);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,9 @@ CREATE TABLE `pic` (
 --
 
 INSERT INTO `pic` (`id`, `first_name`, `last_name`, `gender`, `facebook_account_id`, `customer_id`, `customer_id_type`, `contact_number`, `mother_maiden_name`, `primary_email`, `preferred_language`, `kk_number`, `home_phone`, `home_status`, `office_phone`, `marital_status`, `fax`) VALUES
-(1, 'test', 'coba', '1', 'test', '123', 'ktp', '123', 'test', 'test@test.com', 'english', '123', '123', 'rent', '123', '1', 'test');
+(8, 'testone', 'testone', 'Male', '123', '123', 'KTP', '123', 'test1', 'test1@test.com', 'English', '1234567898765432', '123', 'Own House', '123', 'married', '123'),
+(9, 'testtwo', 'testtwo', 'Female', '456', '456', 'Passport', '456', 'test2', 'test2@test.com', 'Bahasa Indonesia', '4567890987654321', '456', 'Rent', '456', 'married', '456'),
+(10, 'testthree', 'testthree', 'Female', '789', '789', 'KTP', '789', 'test3', 'test3@test.com', 'Bahasa Indonesia', '7890987654321234', '789', 'Apartment', '789', 'married', '789');
 
 --
 -- Indexes for dumped tables
@@ -148,12 +154,12 @@ ALTER TABLE `pic`
 -- AUTO_INCREMENT for table `customer_seq`
 --
 ALTER TABLE `customer_seq`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `pic`
 --
 ALTER TABLE `pic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
