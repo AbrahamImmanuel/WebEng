@@ -1,0 +1,4 @@
+must change these two files' localhost address in order to work properly
+
+indexController.php
+search.php
