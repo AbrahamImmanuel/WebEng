@@ -47,7 +47,7 @@
 					</select>
 				</td>
 				<td scope="row">Customer Number Account</td>
-				<td scope="row"><input type="text" class="form-control" placeholder="CA100023006" disabled></td>
+				<td scope="row"><input type="text" class="form-control" placeholder="" disabled></td>
 				<td scope="row">Dukcapil Status</td>
 				<td scope="row">
 					<select class="form-control" name="dukcapilStatus">

@@ -13,10 +13,13 @@ RewriteRule ^cna/([0-9A-Za-z_\.-\@]+)$    index.php?method=cna&search=$1 [QSA]
 # GET ../all/{search}
 RewriteRule ^all/([0-9A-Za-z_\.-\@]+)$    index.php?method=all&search=$1 [QSA]
 
+# GET ../dukcapil/{search}
+RewriteRule ^dukcapil/([0-9A-Za-z_\.-\@]+)$    index.php?method=dukcapil&search=$1 [QSA]
+
 # POST ../insert
 RewriteCond %{REQUEST_METHOD} POST
 RewriteRule ^insert  index.php?method=insert [QSA]
 
-# POST ../edit/{id}
+# POST ../edit
 RewriteCond %{REQUEST_METHOD} POST
-RewriteRule ^edit/([0-9A-Za-z_\.-\@]+)$  index.php?method=edit&id=$1 [QSA]
+RewriteRule ^edit  index.php?method=edit [QSA]

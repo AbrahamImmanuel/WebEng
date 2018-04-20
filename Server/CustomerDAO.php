@@ -105,23 +105,25 @@
 		function update($data, $id)
 		{
 			R::exec(
-			"update customer
-			set customer_segment = '".$data['customerSegment']."',
-			set customer_category = '".$data['customerCategory']."',
-			set residence_type = '".$data['residenceType']."',
-			set date_of_birth = '".$data['dateOfBirth']."',
-			set occupation = '".$data['occupation']."',
-			set shared_balance_group = '".$data['sharedBalanceGroup']."',
-			set dukcapil_status = '".$data['dukcapilStatus']."',
-			set npwp_number = '".$data['npwpNumber']."',
-			set is_converted_from_lead = '".$data['isConvertedFromLead']."',
-			set customer_status = '".$data['customerStatus']."',
-			set primary_mobile = '".$data['primaryMobile']."',
-			set corporate_tax_id = '".$data['corporateTaxId']."',
-			set customer_username = '".$data['customerUsername']."',
-			set pic_id = $id
-			where customer_number_account = '".$data['customerNumberAccount']."'"
+			"update customer set
+			customer_segment = '".$data['customerSegment']."',
+			customer_category = '".$data['customerCategory']."',
+			residence_type = '".$data['residenceType']."',
+			date_of_birth = '".$data['dateOfBirth']."',
+			occupation = '".$data['occupation']."',
+			shared_balance_group = '".$data['sharedBalanceGroup']."',
+			dukcapil_status = '".$data['dukcapilStatus']."',
+			npwp_number = '".$data['npwpNumber']."',
+			is_converted_from_lead = '".$data['isConvertedFromLead']."',
+			customer_status = '".$data['customerStatus']."',
+			primary_mobile = '".$data['primaryMobile']."',
+			corporate_tax_id = '".$data['corporateTaxId']."',
+			customer_username = '".$data['customerUsername']."'
+			where customer_number_account = '$id'"
 			);
+			
+			$array = R::getRow("select customer_number_account as customerNumberAccount, modified_time, created_time from customer where customer_number_account = $id");
+			return $array;
 		}
 	}
 ?>
