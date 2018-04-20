@@ -25,8 +25,11 @@
 		function update($data, $id)
 		{
 			$pic = R::load( 'pic', $id );
-			$pic->import($data, 'firstName, lastName, gender, facebookAccountId, customerId, customerIdType, contactNumber, motherMaidenName, primaryEmail, preferredLanguage, kkNumber, homePhone, homeStatus, officePhone, maritalStatus, fax');
-			R::store( $pic );
+			if($pic->id != 0)
+			{
+				$pic->import($data, 'firstName, lastName, gender, facebookAccountId, customerId, customerIdType, contactNumber, motherMaidenName, primaryEmail, preferredLanguage, kkNumber, homePhone, homeStatus, officePhone, maritalStatus, fax');
+				R::store( $pic );
+			}
 		}
 	}
 ?>
