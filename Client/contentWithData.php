@@ -69,9 +69,10 @@
 					?>
 					</select>
 				</td>
-				<input type="hidden" name="id" value="">
+				<input type="hidden" name="id" value="<?php echo $id ?>">
+				<input type="hidden" name="cna" value="<?php echo $customerNumberAccount ?>">
 				<td scope="row">Customer Number Account</td>
-				<td scope="row"><input type="text" name="customerNumberAccount" class="form-control" placeholder="CA100023006" value="<?php echo $customerNumberAccount ?>" disabled></td>
+				<td scope="row"><input type="text" name="customerNumberAccount" class="form-control" placeholder="" value="<?php echo $customerNumberAccount ?>" disabled></td>
 				<td scope="row">Dukcapil Status</td>
 				<td scope="row">
 					<select class="form-control" name="dukcapilStatus">

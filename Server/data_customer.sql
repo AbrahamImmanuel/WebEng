@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2018 at 04:26 AM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.6.14
+-- Generation Time: Apr 20, 2018 at 02:41 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `data_customer`
 --
+CREATE DATABASE IF NOT EXISTS `data_customer` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `data_customer`;
 
 -- --------------------------------------------------------
 
@@ -26,7 +30,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `customer`
 --
 
-CREATE TABLE `customer` (
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE IF NOT EXISTS `customer` (
   `customer_number_account` varchar(11) NOT NULL,
   `customer_segment` varchar(20) NOT NULL,
   `customer_category` varchar(20) NOT NULL,
@@ -46,7 +51,9 @@ CREATE TABLE `customer` (
   `corporate_tax_id` varchar(15) NOT NULL,
   `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `customer_username` varchar(20) NOT NULL,
-  `pic_id` int(11) NOT NULL
+  `pic_id` int(11) NOT NULL,
+  PRIMARY KEY (`customer_number_account`),
+  KEY `pic_id` (`pic_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -61,6 +68,7 @@ INSERT INTO `customer` (`customer_number_account`, `customer_segment`, `customer
 --
 -- Triggers `customer`
 --
+DROP TRIGGER IF EXISTS `tg_customer_insert`;
 DELIMITER $$
 CREATE TRIGGER `tg_customer_insert` BEFORE INSERT ON `customer` FOR EACH ROW BEGIN
   INSERT INTO customer_seq VALUES (NULL);
@@ -75,9 +83,11 @@ DELIMITER ;
 -- Table structure for table `customer_seq`
 --
 
-CREATE TABLE `customer_seq` (
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `customer_seq`;
+CREATE TABLE IF NOT EXISTS `customer_seq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer_seq`
@@ -91,11 +101,33 @@ INSERT INTO `customer_seq` (`id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dukcapil`
+--
+
+DROP TABLE IF EXISTS `dukcapil`;
+CREATE TABLE IF NOT EXISTS `dukcapil` (
+  `id` varchar(16) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `dukcapil`
+--
+
+INSERT INTO `dukcapil` (`id`) VALUES
+('1234567898765432'),
+('6789054321123987'),
+('9876543212345678');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pic`
 --
 
-CREATE TABLE `pic` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pic`;
+CREATE TABLE IF NOT EXISTS `pic` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `gender` varchar(20) NOT NULL,
@@ -111,8 +143,9 @@ CREATE TABLE `pic` (
   `home_status` varchar(20) NOT NULL,
   `office_phone` varchar(20) NOT NULL,
   `marital_status` varchar(20) NOT NULL,
-  `fax` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fax` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pic`
@@ -124,43 +157,6 @@ INSERT INTO `pic` (`id`, `first_name`, `last_name`, `gender`, `facebook_account_
 (10, 'testthree', 'testthree', 'Female', '789', '789', 'KTP', '789', 'test3', 'test3@test.com', 'Bahasa Indonesia', '7890987654321234', '789', 'Apartment', '789', 'married', '789');
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customer_number_account`),
-  ADD KEY `pic_id` (`pic_id`);
-
---
--- Indexes for table `customer_seq`
---
-ALTER TABLE `customer_seq`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pic`
---
-ALTER TABLE `pic`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `customer_seq`
---
-ALTER TABLE `customer_seq`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `pic`
---
-ALTER TABLE `pic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
 -- Constraints for dumped tables
 --
 
@@ -169,6 +165,7 @@ ALTER TABLE `pic`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`pic_id`) REFERENCES `pic` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
