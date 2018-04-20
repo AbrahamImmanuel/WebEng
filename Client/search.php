@@ -1,6 +1,7 @@
 <?php
 	session_start();
-	$path = "http://localhost/GitHub/WebEng/Server/";
+        $dir = dirname($_SERVER["PHP_SELF"],2) . "/Server/";
+	$path = "http://localhost$dir";
 	
 	if($search = $_POST['search'])
 	{	
