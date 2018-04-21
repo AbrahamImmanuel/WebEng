@@ -9083,3 +9083,8 @@ a.text-dark:hover, a.text-dark:focus {
 .pagination a:hover {
   text-decoration: none;
 }
+
+.logo{
+    width:100px;
+    margin-left: 50px;
+}

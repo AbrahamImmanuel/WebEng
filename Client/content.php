@@ -1,7 +1,7 @@
 <form method="POST" action="indexController.php">
 	<div style="float:left;width:85%"> <!--form header-->
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand" href="#">Navbar</a>
+			<a class="navbar-brand" href="index.php"><img class="logo" src="Logo.png"></a>
 			<div class="collapse navbar-collapse" id="navbarColor03">
 				<ul style="margin-left: 40%" class="navbar-nav mr-auto">
 					<li class="nav-item active">
